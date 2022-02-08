@@ -1,0 +1,6 @@
+C:\Users\walpi\source\repos\web3UTNApp\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\walpi\source\repos\web3UTNApp\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\walpi\source\repos\web3UTNApp\Entidades\bin\Debug\Entidades.dll
+C:\Users\walpi\source\repos\web3UTNApp\Entidades\bin\Debug\Entidades.pdb
+C:\Users\walpi\source\repos\web3UTNApp\Entidades\obj\Debug\Entidades.dll
+C:\Users\walpi\source\repos\web3UTNApp\Entidades\obj\Debug\Entidades.pdb
