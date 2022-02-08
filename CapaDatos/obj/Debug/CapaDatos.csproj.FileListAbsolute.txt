@@ -1,0 +1,6 @@
+C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\obj\Debug\CapaDatos.pdb

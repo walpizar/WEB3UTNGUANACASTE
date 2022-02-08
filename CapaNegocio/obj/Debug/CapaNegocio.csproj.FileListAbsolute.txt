@@ -1,0 +1,9 @@
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\obj\Debug\CapaNegocio.csprojAssemblyReference.cache
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\obj\Debug\CapaNegocio.pdb
