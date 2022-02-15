@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,8 +35,11 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-  
+           clsTren tren = new clsTren();
 
+         
+            
+            
 
         }
     }

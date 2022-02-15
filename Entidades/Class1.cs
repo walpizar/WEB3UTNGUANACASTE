@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Class1
+    public abstract class Class1
     {
-        
+        protected Class1()
+        {
+        }
+
+        protected Class1(string nombre)
+        {
+            this.nombre = nombre;
+        }
+
+        public string nombre { get; set; }
+
+
     }
 }

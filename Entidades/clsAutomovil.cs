@@ -13,7 +13,7 @@ namespace Entidades
     //protected: puedo accederlo solo miediante la herencia
     //internal: es public pero solo dentro del ensamblado/proyecto
     //internal proctected: solo herencia dentro del mismo ensamblado/proyecto
-    public class clsAutomovil
+    public class clsAutomovil: clsVehiculo
     {
 
 
@@ -47,9 +47,25 @@ namespace Entidades
 
 
         public int numeroLlanta { get; set; }
-        public string marca { get; set; }
-        public int modelo { get; set; }
+      
         public decimal kilometraje { get; set; }
+
+
+
+        public override string conducir()
+        {
+            return "estoy conduciendo como automovil";
+        }
+
+        public override string encender()
+        {
+            return "estoy encendiendo como automovil";
+        }
+
+        public override string frenar()
+        {
+            return "estoy frenando como automovil";
+        }
 
 
 
@@ -60,7 +76,7 @@ namespace Entidades
 
 
 
-        //acciones
+        //acciones O metodos
 
 
 

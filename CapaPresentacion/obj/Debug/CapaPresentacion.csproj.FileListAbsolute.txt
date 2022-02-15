@@ -1,7 +1,6 @@
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\CapaPresentacion.exe
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
-C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.csprojAssemblyReference.cache
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
@@ -16,3 +15,4 @@ C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentaci
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.frmPrincipal3.resources
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\Entidades.dll
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\Entidades.pdb
+C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.AssemblyReference.cache
