@@ -1,4 +1,5 @@
-﻿namespace CapaPresentacion
+﻿
+namespace CapaPresentacion
 {
     partial class frmClientes
     {
@@ -33,16 +34,28 @@
             this.pnlDerecha = new System.Windows.Forms.Panel();
             this.pbCerrar = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lstvLista = new System.Windows.Forms.ListView();
-            this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colApellido1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colApellido2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.brnGuardar = new System.Windows.Forms.Button();
+            this.gbxCliente = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtIdentificacion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cboTipoId = new System.Windows.Forms.ComboBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtApellido1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtApellido2 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboTipoCliente = new System.Windows.Forms.ComboBox();
+            this.dtpFechaSocio = new System.Windows.Forms.DateTimePicker();
             this.pnlTitulo.SuspendLayout();
             this.pnlDerecha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).BeginInit();
+            this.gbxCliente.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitulo
@@ -53,14 +66,14 @@
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(617, 50);
-            this.pnlTitulo.TabIndex = 1;
+            this.pnlTitulo.Size = new System.Drawing.Size(473, 50);
+            this.pnlTitulo.TabIndex = 2;
             // 
             // pnlDerecha
             // 
             this.pnlDerecha.Controls.Add(this.pbCerrar);
             this.pnlDerecha.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDerecha.Location = new System.Drawing.Point(503, 0);
+            this.pnlDerecha.Location = new System.Drawing.Point(359, 0);
             this.pnlDerecha.Name = "pnlDerecha";
             this.pnlDerecha.Size = new System.Drawing.Size(114, 50);
             this.pnlDerecha.TabIndex = 2;
@@ -87,73 +100,193 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "label1";
             // 
-            // lstvLista
+            // btnCancelar
             // 
-            this.lstvLista.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colID,
-            this.colNombre,
-            this.colApellido1,
-            this.colApellido2});
-            this.lstvLista.FullRowSelect = true;
-            this.lstvLista.GridLines = true;
-            this.lstvLista.HideSelection = false;
-            this.lstvLista.Location = new System.Drawing.Point(9, 115);
-            this.lstvLista.MultiSelect = false;
-            this.lstvLista.Name = "lstvLista";
-            this.lstvLista.Size = new System.Drawing.Size(596, 378);
-            this.lstvLista.TabIndex = 2;
-            this.lstvLista.UseCompatibleStateImageBehavior = false;
-            this.lstvLista.View = System.Windows.Forms.View.Details;
-            this.lstvLista.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(125, 318);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(102, 50);
+            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // colID
+            // btnEliminar
             // 
-            this.colID.Text = "ID";
-            this.colID.Width = 100;
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(233, 318);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(102, 50);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
             // 
-            // colNombre
+            // brnGuardar
             // 
-            this.colNombre.Text = "Nombre";
-            this.colNombre.Width = 150;
+            this.brnGuardar.BackColor = System.Drawing.Color.Green;
+            this.brnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brnGuardar.ForeColor = System.Drawing.Color.White;
+            this.brnGuardar.Location = new System.Drawing.Point(341, 318);
+            this.brnGuardar.Name = "brnGuardar";
+            this.brnGuardar.Size = new System.Drawing.Size(102, 50);
+            this.brnGuardar.TabIndex = 7;
+            this.brnGuardar.Text = "Guardar";
+            this.brnGuardar.UseVisualStyleBackColor = false;
+            this.brnGuardar.Click += new System.EventHandler(this.brnGuardar_Click);
             // 
-            // colApellido1
+            // gbxCliente
             // 
-            this.colApellido1.Text = "Primer Apellido";
-            this.colApellido1.Width = 150;
+            this.gbxCliente.Controls.Add(this.dtpFechaSocio);
+            this.gbxCliente.Controls.Add(this.cboTipoCliente);
+            this.gbxCliente.Controls.Add(this.label7);
+            this.gbxCliente.Controls.Add(this.label6);
+            this.gbxCliente.Controls.Add(this.txtApellido2);
+            this.gbxCliente.Controls.Add(this.label5);
+            this.gbxCliente.Controls.Add(this.txtApellido1);
+            this.gbxCliente.Controls.Add(this.label4);
+            this.gbxCliente.Controls.Add(this.txtNombre);
+            this.gbxCliente.Controls.Add(this.label3);
+            this.gbxCliente.Controls.Add(this.cboTipoId);
+            this.gbxCliente.Controls.Add(this.label2);
+            this.gbxCliente.Controls.Add(this.txtIdentificacion);
+            this.gbxCliente.Controls.Add(this.label1);
+            this.gbxCliente.Location = new System.Drawing.Point(12, 56);
+            this.gbxCliente.Name = "gbxCliente";
+            this.gbxCliente.Size = new System.Drawing.Size(431, 247);
+            this.gbxCliente.TabIndex = 8;
+            this.gbxCliente.TabStop = false;
+            this.gbxCliente.Text = "Datos Clientes";
+            this.gbxCliente.Enter += new System.EventHandler(this.gbxCliente_Enter);
             // 
-            // colApellido2
+            // label1
             // 
-            this.colApellido2.Text = "Segundo Apellido";
-            this.colApellido2.Width = 150;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Identificación:";
             // 
-            // txtBusqueda
+            // txtIdentificacion
             // 
-            this.txtBusqueda.Location = new System.Drawing.Point(9, 89);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(406, 20);
-            this.txtBusqueda.TabIndex = 3;
+            this.txtIdentificacion.Location = new System.Drawing.Point(120, 33);
+            this.txtIdentificacion.Name = "txtIdentificacion";
+            this.txtIdentificacion.Size = new System.Drawing.Size(265, 20);
+            this.txtIdentificacion.TabIndex = 1;
             // 
-            // btnNuevo
+            // label2
             // 
-            this.btnNuevo.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(503, 59);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(102, 50);
-            this.btnNuevo.TabIndex = 4;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.button1_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Tipo Identificación:";
+            // 
+            // cboTipoId
+            // 
+            this.cboTipoId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoId.FormattingEnabled = true;
+            this.cboTipoId.Location = new System.Drawing.Point(120, 59);
+            this.cboTipoId.Name = "cboTipoId";
+            this.cboTipoId.Size = new System.Drawing.Size(265, 21);
+            this.cboTipoId.TabIndex = 3;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(120, 86);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(265, 20);
+            this.txtNombre.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(67, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Nombre:";
+            // 
+            // txtApellido1
+            // 
+            this.txtApellido1.Location = new System.Drawing.Point(120, 112);
+            this.txtApellido1.Name = "txtApellido1";
+            this.txtApellido1.Size = new System.Drawing.Size(265, 20);
+            this.txtApellido1.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(35, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Primer Apellido:";
+            // 
+            // txtApellido2
+            // 
+            this.txtApellido2.Location = new System.Drawing.Point(120, 138);
+            this.txtApellido2.Name = "txtApellido2";
+            this.txtApellido2.Size = new System.Drawing.Size(265, 20);
+            this.txtApellido2.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(21, 142);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Segundo Apellido:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(33, 168);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Tipo de Cliente:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 197);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Fecha inscripción:";
+            // 
+            // cboTipoCliente
+            // 
+            this.cboTipoCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoCliente.FormattingEnabled = true;
+            this.cboTipoCliente.Location = new System.Drawing.Point(120, 164);
+            this.cboTipoCliente.Name = "cboTipoCliente";
+            this.cboTipoCliente.Size = new System.Drawing.Size(265, 21);
+            this.cboTipoCliente.TabIndex = 12;
+            // 
+            // dtpFechaSocio
+            // 
+            this.dtpFechaSocio.Location = new System.Drawing.Point(120, 193);
+            this.dtpFechaSocio.Name = "dtpFechaSocio";
+            this.dtpFechaSocio.Size = new System.Drawing.Size(265, 20);
+            this.dtpFechaSocio.TabIndex = 13;
             // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 503);
-            this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.txtBusqueda);
-            this.Controls.Add(this.lstvLista);
+            this.ClientSize = new System.Drawing.Size(473, 380);
+            this.Controls.Add(this.gbxCliente);
+            this.Controls.Add(this.brnGuardar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.pnlTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmClientes";
@@ -165,8 +298,9 @@
             this.pnlDerecha.ResumeLayout(false);
             this.pnlDerecha.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).EndInit();
+            this.gbxCliente.ResumeLayout(false);
+            this.gbxCliente.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -176,12 +310,23 @@
         private System.Windows.Forms.Panel pnlDerecha;
         private System.Windows.Forms.PictureBox pbCerrar;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.ListView lstvLista;
-        private System.Windows.Forms.ColumnHeader colID;
-        private System.Windows.Forms.ColumnHeader colNombre;
-        private System.Windows.Forms.ColumnHeader colApellido1;
-        private System.Windows.Forms.ColumnHeader colApellido2;
-        private System.Windows.Forms.TextBox txtBusqueda;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button brnGuardar;
+        private System.Windows.Forms.GroupBox gbxCliente;
+        private System.Windows.Forms.TextBox txtIdentificacion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtApellido2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtApellido1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cboTipoId;
+        private System.Windows.Forms.DateTimePicker dtpFechaSocio;
+        private System.Windows.Forms.ComboBox cboTipoCliente;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }

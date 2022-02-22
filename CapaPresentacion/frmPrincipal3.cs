@@ -80,7 +80,7 @@ namespace CapaPresentacion
         {
 
 
-            frmClientes form = new frmClientes();
+            frmListaClientes form = new frmListaClientes();
             form.ShowDialog();
         }
     }

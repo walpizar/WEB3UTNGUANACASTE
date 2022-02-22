@@ -9,7 +9,7 @@ namespace Entidades
 
     //clase abstracta: existe pero la unica manera de acceder a ella es mediante la herencia
     //super clase, clase generica
-    public abstract class clsVehiculo: Class1
+    public abstract class clsVehiculo
     {
         //atributos y encapsulados
         public string placa { get; set; }
@@ -41,7 +41,7 @@ namespace Entidades
         //}
 
         public clsVehiculo(string _nombre,string _placa, int _color, string _marca, int _vin)
-                :base(_nombre)
+               
         {
             this.placa = _placa;
             this.color = _color;

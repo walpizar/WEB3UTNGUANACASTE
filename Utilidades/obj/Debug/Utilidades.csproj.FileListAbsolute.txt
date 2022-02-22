@@ -1,0 +1,6 @@
+C:\Users\walpi\source\repos\web3UTNApp\Utilidades\bin\Debug\Utilidades.dll
+C:\Users\walpi\source\repos\web3UTNApp\Utilidades\bin\Debug\Utilidades.pdb
+C:\Users\walpi\source\repos\web3UTNApp\Utilidades\obj\Debug\Utilidades.csproj.AssemblyReference.cache
+C:\Users\walpi\source\repos\web3UTNApp\Utilidades\obj\Debug\Utilidades.csproj.CoreCompileInputs.cache
+C:\Users\walpi\source\repos\web3UTNApp\Utilidades\obj\Debug\Utilidades.dll
+C:\Users\walpi\source\repos\web3UTNApp\Utilidades\obj\Debug\Utilidades.pdb
