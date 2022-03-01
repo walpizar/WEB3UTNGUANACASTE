@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace CapaPresentacion
 {
     public partial class frmPrincipal2 : Form
     {
-        public frmPrincipal2()
+        public IServiceProvider ServiceProvider { get; }
+
+        public frmPrincipal2(IServiceProvider _serviceProvider)
         {
             InitializeComponent();
+            ServiceProvider = _serviceProvider;
         }
       /// <summary>
       /// evento click de menu cliente, muestra el formulario cliente
@@ -32,10 +36,9 @@ namespace CapaPresentacion
             */
 
 
-            //una instancia-- accediendo a la memoria
-            frmListaClientes frmclientes = new frmListaClientes();
-            //showDialog: Muestra el formulario
-            frmclientes.ShowDialog();
+            var form = ServiceProvider.GetRequiredService<frmListaClientes>();
+            //frmListaClientes form = new frmListaClientes();
+            form.ShowDialog();
         }
 
         private void frmPrincipal2_Load(object sender, EventArgs e)

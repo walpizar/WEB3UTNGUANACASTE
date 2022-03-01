@@ -10,15 +10,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
+using Utilidades.Interfaces;
 
 namespace CapaPresentacion
 {
 
     public partial class frmClientes : Form
     {
-        public frmClientes()
+        public INegocio<clsCliente> ClienteNegocio { get; }
+
+        //
+        //mandar a llamar a capa de negocio de cliente- guardar
+        //ClientesNegocio clienteN = new ClientesNegocio();
+
+        public frmClientes(INegocio<clsCliente> _clienteNegocio)
         {
             InitializeComponent();
+            ClienteNegocio = _clienteNegocio;
         }
 
         private void pbCerrar_Click(object sender, EventArgs e)
@@ -75,15 +83,16 @@ namespace CapaPresentacion
                 cliente.fecha_socio = dtpFechaSocio.Value;
                 cliente.estado = true;
 
-                //mandar a llamar a capa de negocio de cliente- guardar
-                ClientesNegocio clienteN = new ClientesNegocio();
 
-                clienteN.guardar(cliente);
 
+                ClienteNegocio.save(cliente);
+                MessageBox.Show("Cliente guardado", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
 
         }
 
+        //validacion de datos.
        private bool validarDatos()
         {
             if (txtIdentificacion.Text==string.Empty)

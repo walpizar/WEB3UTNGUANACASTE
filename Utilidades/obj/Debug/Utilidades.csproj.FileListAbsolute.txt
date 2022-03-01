@@ -4,3 +4,6 @@ C:\Users\walpi\source\repos\web3UTNApp\Utilidades\obj\Debug\Utilidades.csproj.As
 C:\Users\walpi\source\repos\web3UTNApp\Utilidades\obj\Debug\Utilidades.csproj.CoreCompileInputs.cache
 C:\Users\walpi\source\repos\web3UTNApp\Utilidades\obj\Debug\Utilidades.dll
 C:\Users\walpi\source\repos\web3UTNApp\Utilidades\obj\Debug\Utilidades.pdb
+C:\Users\walpi\source\repos\web3UTNApp\Utilidades\bin\Debug\Entidades.dll
+C:\Users\walpi\source\repos\web3UTNApp\Utilidades\bin\Debug\Entidades.pdb
+C:\Users\walpi\source\repos\web3UTNApp\Utilidades\obj\Debug\Utilidades.csproj.CopyComplete

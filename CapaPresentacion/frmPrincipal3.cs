@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace CapaPresentacion
 {
     public partial class frmPrincipal3 : Form
     {
-        public frmPrincipal3()
+        public IServiceProvider ServiceProvider { get; }
+
+        public frmPrincipal3(IServiceProvider _serviceProvider)
         {
             InitializeComponent();
+            ServiceProvider = _serviceProvider;
         }
 
         private void pnlPrincipal_Paint(object sender, PaintEventArgs e)
@@ -79,8 +83,7 @@ namespace CapaPresentacion
         private void btnClientes_Click(object sender, EventArgs e)
         {
 
-
-            frmListaClientes form = new frmListaClientes();
+            var form = ServiceProvider.GetRequiredService<frmListaClientes>();         
             form.ShowDialog();
         }
     }

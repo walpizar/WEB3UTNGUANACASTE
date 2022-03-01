@@ -5,23 +5,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilidades.Interfaces;
 
 namespace CapaNegocio
 {
-    public class ClientesNegocio
+    public class ClientesNegocio : INegocio<clsCliente>
     {
-
-        public clsCliente guardar(clsCliente cliente)
+        public IDatos<clsCliente> ClienteDatos { get; }
+        public ClientesNegocio(IDatos<clsCliente> _clienteDatos)
         {
+            ClienteDatos = _clienteDatos;
+        }
 
-            //aplique reglas de negocio
-            //regla no exista en la base datos la cedula 6-1111111
+   
+
+        //ClientesDatos clienteDato = new ClientesDatos();
+
+        public bool delete(clsCliente cliente)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<clsCliente> getAll()
+        {
+            return ClienteDatos.getAll();
+        }
+
+        public clsCliente getById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public clsCliente save(clsCliente cliente)
+        {
+            //reglas de negocio
 
 
-            //llamar a mi capa de datos. al metodo guardar()
-            ClientesDatos clienteDatos = new ClientesDatos();
-            return clienteDatos.guardar(cliente);
-          
+            return ClienteDatos.save(cliente);
+        }
+
+        public clsCliente update(clsCliente cliente)
+        {
+            throw new NotImplementedException();
         }
     }
 }
