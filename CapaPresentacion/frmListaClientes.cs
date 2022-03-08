@@ -16,6 +16,7 @@ namespace CapaPresentacion
 {
     public partial class frmListaClientes : Form
     {
+        List<clsCliente> lista;
         public INegocio<clsCliente> ClienteNegocio { get; }
         public IServiceProvider ServiceProvider { get; }
 
@@ -32,17 +33,24 @@ namespace CapaPresentacion
         private void frmClientes_Load(object sender, EventArgs e)
         {
             lblTitulo.Text = "Mantenimiento de Clientes";
-            obtenerDatos();
+           
+             obtenerDatos();
+                
 
         }
         private void obtenerDatos()
         {
+            try
+            {
+                lista = ClienteNegocio.getAll();
 
-           var lista= ClienteNegocio.getAll();
+                cargarListView(lista);
+            }
+            catch (Exception)
+            {
 
-            cargarListView(lista);
-
-
+                MessageBox.Show("No se pudo cargar la lista", "Cargar lista clientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void cargarListView(List<clsCliente> lista)
         {
@@ -87,6 +95,25 @@ namespace CapaPresentacion
 
 
 
+
+        }
+
+        private void lstvLista_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                var ident = lstvLista.SelectedItems[0].Text;
+                var cliente = lista.Where(x => x.identificacion.Trim().Equals(ident.Trim())).SingleOrDefault();
+
+                var form = ServiceProvider.GetRequiredService<frmClientes>();
+                form.cliente = cliente;
+                form.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("No se pudo cargar el cliente", "Cargar clientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }       
 
         }
     }

@@ -13,6 +13,7 @@ namespace Utilidades.Interfaces
         bool delete(entity cliente);
         List<entity> getAll();
         entity getById(int id);
+        entity getByIdent(string id);
 
     }
 }

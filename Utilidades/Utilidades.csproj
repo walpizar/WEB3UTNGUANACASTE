@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumeradores.cs" />
+    <Compile Include="Exceptions\EntityExistException.cs" />
     <Compile Include="Interfaces\IDatos.cs" />
     <Compile Include="Interfaces\INegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
+using Utilidades.Exceptions;
 using Utilidades.Interfaces;
 
 namespace CapaPresentacion
@@ -17,6 +18,7 @@ namespace CapaPresentacion
 
     public partial class frmClientes : Form
     {
+        public clsCliente cliente { get; set; }
         public INegocio<clsCliente> ClienteNegocio { get; }
 
         //
@@ -41,12 +43,38 @@ namespace CapaPresentacion
 
         private void frmClientes_Load(object sender, EventArgs e)
         {
-            lblTitulo.Text = "Crear Cliente";
-
             cargarCombos();
 
             cboTipoCliente.SelectedIndex = 0;
             cboTipoId.SelectedIndex = 0;
+
+
+            if (cliente == null)
+            {
+                lblTitulo.Text = "Crear Cliente";
+            }
+            else
+            {
+                lblTitulo.Text = "Modificar Cliente";
+                cargarForm();
+                txtIdentificacion.Enabled = false;
+                cboTipoId.Enabled = false;
+            }
+          
+
+         
+        }
+
+        private void cargarForm()
+        {
+            txtIdentificacion.Text = cliente.identificacion;
+            cboTipoId.Text = Enum.GetName(typeof(Enumeradores.tipoId), cliente.tipoId);
+            txtNombre.Text = cliente.nombre;
+            txtApellido1.Text = cliente.apellido1;
+            txtApellido2.Text = cliente.apellido2;
+            cboTipoCliente.Text = Enum.GetName(typeof(Enumeradores.tipoCliente), cliente.tipoCliente);
+            dtpFechaSocio.Value = cliente.fecha_socio;
+
         }
 
         private void cargarCombos()
@@ -63,32 +91,51 @@ namespace CapaPresentacion
 
         private void brnGuardar_Click(object sender, EventArgs e)
         {
+            try
+            {//validar si es modiicar o crear; 
+                bool isOk= validarDatos();
+                //permite validar el formulario y da paso a guardar
+                if (isOk)
+                {
+                    //new desde 0
+                    //creo new cuando es crear, sino utilizo el prop
+                    clsCliente cliente = new clsCliente();
 
-            //bandera
-           bool isOk= validarDatos();
-            //permite validar el formulario y da paso a guardar
-            if (isOk)
-            {
-                //new desde 0
-                clsCliente cliente = new clsCliente();
-
-                cliente.identificacion = txtIdentificacion.Text.Trim().ToUpper();
-                //int.parse(string) utilizo cuando el valor que quiero convertir es string
-                //(int)
-                cliente.tipoId = (int)cboTipoId.SelectedValue;
-                cliente.nombre= txtNombre.Text.Trim().ToUpper();
-                cliente.apellido1 = txtApellido1.Text.Trim().ToUpper();
-                cliente.apellido2 = txtApellido2.Text.Trim().ToUpper();
-                cliente.tipoCliente = (int)cboTipoCliente.SelectedValue;
-                cliente.fecha_socio = dtpFechaSocio.Value;
-                cliente.estado = true;
+                    cliente.identificacion = txtIdentificacion.Text.Trim().ToUpper();
+                    //int.parse(string) utilizo cuando el valor que quiero convertir es string
+                    //(int)
+                    cliente.tipoId = (int)cboTipoId.SelectedValue;
+                    cliente.nombre= txtNombre.Text.Trim().ToUpper();
+                    cliente.apellido1 = txtApellido1.Text.Trim().ToUpper();
+                    cliente.apellido2 = txtApellido2.Text.Trim().ToUpper();
+                    cliente.tipoCliente = (int)cboTipoCliente.SelectedValue;
+                    cliente.fecha_socio = dtpFechaSocio.Value;
+                    cliente.estado = true;
 
 
-
-                ClienteNegocio.save(cliente);
-                MessageBox.Show("Cliente guardado", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                    //valiado si crear para llamar al metodo save, sino llamo al medo update.
+                    ClienteNegocio.save(cliente);
+                    MessageBox.Show("Cliente guardado", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
+            catch (EntityExistException ex)
+            {
+             
+                MessageBox.Show(ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //catch (EntityExistException ex)
+            //{
+
+            //    MessageBox.Show(ex.Message, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            catch (Exception ex)
+            {
+              
+                MessageBox.Show("No se pudo guardar, contacte el administrador", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //bandera
+          
 
         }
 
@@ -124,6 +171,19 @@ namespace CapaPresentacion
             }
 
             return true;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

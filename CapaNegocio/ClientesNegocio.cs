@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilidades.Exceptions;
 using Utilidades.Interfaces;
 
 namespace CapaNegocio
@@ -23,30 +24,93 @@ namespace CapaNegocio
 
         public bool delete(clsCliente cliente)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (NotImplementedException ex)
+            {
+                throw;
+            }            
+            catch (NullReferenceException ex)
+            {
+
+                throw;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        
         }
 
         public List<clsCliente> getAll()
         {
-            return ClienteDatos.getAll();
+            try
+            {
+                return ClienteDatos.getAll();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+   
         }
 
         public clsCliente getById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+           
         }
 
         public clsCliente save(clsCliente cliente)
         {
-            //reglas de negocio
+            
+            try
+            {
+                //reglas de negocio
+                //el cliente no exista mediante su identificacion
+                var cli = ClienteDatos.getByIdent(cliente.identificacion);
+                if(cli != null)
+                {
+                    throw new EntityExistException("Cliente");
 
+                }
 
-            return ClienteDatos.save(cliente);
+                return ClienteDatos.save(cliente);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
         }
 
         public clsCliente update(clsCliente cliente)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+  
         }
+
+               
     }
 }

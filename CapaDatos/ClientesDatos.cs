@@ -22,33 +22,122 @@ namespace CapaDatos
 
         public bool delete(clsCliente cliente)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        
         }
 
         public List<clsCliente> getAll()
         {
-            //LINQ
-            //empresion LAMBDA
-            return this.lista.Where(x=>x.estado==true).ToList();
+            try
+            {
+                //LINQ
+                //empresion LAMBDA
+                return this.lista.Where(x => x.estado == true).ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+    
         }
 
         public clsCliente getById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+           
+        }
+
+        private int getNextId()
+        {
+            try
+            {
+                return lista.Count() + 1;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+           
         }
 
         public clsCliente save(clsCliente cliente)
         {
-            //lista
-            this.lista.Add(cliente);
-            return cliente;
+            try
+            {
+                //lista
+                //manejo excpciones
+                           
+                cliente.id = getNextId();
+                this.lista.Add(cliente);
+                return cliente;
+            }
+            catch (Exception ex)
+            {
 
-
+                throw;
+            }
+        
         }
-
         public clsCliente update(clsCliente cliente)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+         
+        }
+
+        public clsCliente getByIdent(string id)
+        {
+            try
+            {
+                //trabajo clase devuelve cliente sino devuelve null.
+
+                return lista.Where(x => x.identificacion.Trim().Equals(id.Trim())).SingleOrDefault();
+
+
+
+                //foreach (var cliente in lista)
+                //{
+                //    if (cliente.identificacion==id) {
+
+                //        return cliente;
+                //    }
+
+                //}
+                //return null;
+
+               
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+           
         }
     }
 }

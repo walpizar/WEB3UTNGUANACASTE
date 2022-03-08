@@ -25,6 +25,11 @@ namespace CapaDatos
             throw new NotImplementedException();
         }
 
+        public clsProveedores getByIdent(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public clsProveedores save(clsProveedores cliente)
         {
             throw new NotImplementedException();
