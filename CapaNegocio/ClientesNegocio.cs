@@ -26,17 +26,8 @@ namespace CapaNegocio
         {
             try
             {
-                throw new NotImplementedException();
-            }
-            catch (NotImplementedException ex)
-            {
-                throw;
+                return ClienteDatos.delete(cliente);
             }            
-            catch (NullReferenceException ex)
-            {
-
-                throw;
-            }
             catch (Exception ex)
             {
 
@@ -101,7 +92,9 @@ namespace CapaNegocio
         {
             try
             {
-                throw new NotImplementedException();
+                //reglas de nogocio, en este no aplica ninguna de las que tenemos en el save
+
+                return ClienteDatos.update(cliente);
             }
             catch (Exception ex)
             {

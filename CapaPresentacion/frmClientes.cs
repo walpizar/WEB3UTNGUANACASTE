@@ -18,7 +18,10 @@ namespace CapaPresentacion
 
     public partial class frmClientes : Form
     {
-        public clsCliente cliente { get; set; }
+
+
+        bool isNew = true;
+        public clsCliente clienteGlobal { get; set; }
         public INegocio<clsCliente> ClienteNegocio { get; }
 
         //
@@ -43,15 +46,29 @@ namespace CapaPresentacion
 
         private void frmClientes_Load(object sender, EventArgs e)
         {
+
+            //if (clienteGlobal == null)
+            //{
+            //    isNew = true;
+
+            //}
+            //else
+            //{
+            //    isNew = false;
+            //}
+
+            isNew = clienteGlobal == null ? true : false;     
+
             cargarCombos();
 
             cboTipoCliente.SelectedIndex = 0;
             cboTipoId.SelectedIndex = 0;
 
 
-            if (cliente == null)
+            if (isNew)
             {
                 lblTitulo.Text = "Crear Cliente";
+                btnEliminar.Enabled = false;
             }
             else
             {
@@ -59,6 +76,7 @@ namespace CapaPresentacion
                 cargarForm();
                 txtIdentificacion.Enabled = false;
                 cboTipoId.Enabled = false;
+                btnGuardar.Text = "Modificar";
             }
           
 
@@ -67,13 +85,13 @@ namespace CapaPresentacion
 
         private void cargarForm()
         {
-            txtIdentificacion.Text = cliente.identificacion;
-            cboTipoId.Text = Enum.GetName(typeof(Enumeradores.tipoId), cliente.tipoId);
-            txtNombre.Text = cliente.nombre;
-            txtApellido1.Text = cliente.apellido1;
-            txtApellido2.Text = cliente.apellido2;
-            cboTipoCliente.Text = Enum.GetName(typeof(Enumeradores.tipoCliente), cliente.tipoCliente);
-            dtpFechaSocio.Value = cliente.fecha_socio;
+            txtIdentificacion.Text = clienteGlobal.identificacion;
+            cboTipoId.Text = Enum.GetName(typeof(Enumeradores.tipoId), clienteGlobal.tipoId);
+            txtNombre.Text = clienteGlobal.nombre;
+            txtApellido1.Text = clienteGlobal.apellido1;
+            txtApellido2.Text = clienteGlobal.apellido2;
+            cboTipoCliente.Text = Enum.GetName(typeof(Enumeradores.tipoCliente), clienteGlobal.tipoCliente);
+            dtpFechaSocio.Value = clienteGlobal.fecha_socio;
 
         }
 
@@ -92,14 +110,24 @@ namespace CapaPresentacion
         private void brnGuardar_Click(object sender, EventArgs e)
         {
             try
-            {//validar si es modiicar o crear; 
-                bool isOk= validarDatos();
+            {   clsCliente cliente;
+                //validar si es modiicar o crear;              
                 //permite validar el formulario y da paso a guardar
-                if (isOk)
-                {
-                    //new desde 0
-                    //creo new cuando es crear, sino utilizo el prop
-                    clsCliente cliente = new clsCliente();
+                if (validarDatos())
+                {               
+                    //if (isNew)
+                    //{
+                    //    //new desde 0
+                    //    //creo new cuando es crear, sino utilizo el prop
+                    //    cliente = new clsCliente();
+
+                    //}
+                    //else
+                    //{
+                    //    cliente = clienteGlobal;
+
+                    //}
+                    cliente = isNew ? new clsCliente() : clienteGlobal;
 
                     cliente.identificacion = txtIdentificacion.Text.Trim().ToUpper();
                     //int.parse(string) utilizo cuando el valor que quiero convertir es string
@@ -113,9 +141,24 @@ namespace CapaPresentacion
                     cliente.estado = true;
 
 
-                    //valiado si crear para llamar al metodo save, sino llamo al medo update.
-                    ClienteNegocio.save(cliente);
-                    MessageBox.Show("Cliente guardado", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                    //valido para ver si tengo que guardar nuevo o actualizar
+                    if (isNew)
+                    {
+                        //valiado si crear para llamar al metodo save, sino llamo al medo update.
+                        ClienteNegocio.save(cliente);
+                        MessageBox.Show("Cliente guardado.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    else
+                    {
+                        //actualizo
+                        ClienteNegocio.update(cliente);
+                        MessageBox.Show("Cliente actualizado.", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+
                     this.Close();
                 }
             }
@@ -177,12 +220,19 @@ namespace CapaPresentacion
         {
             try
             {
+                DialogResult result = MessageBox.Show("Desea eliminar el cliente", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {             
+                    ClienteNegocio.delete(clienteGlobal);
+                    MessageBox.Show("Cliente eliminado.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
 
             }
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Error al eliminar el cliente", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

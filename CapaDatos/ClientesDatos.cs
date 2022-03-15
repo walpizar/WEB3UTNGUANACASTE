@@ -24,7 +24,10 @@ namespace CapaDatos
         {
             try
             {
-                throw new NotImplementedException();
+                var cli = getById(cliente.id);
+                cliente.estado = false;
+                //lista.Remove(cliente);
+                return true;
             }
             catch (Exception ex)
             {
@@ -54,7 +57,7 @@ namespace CapaDatos
         {
             try
             {
-                throw new NotImplementedException();
+                return lista.Where(x => x.id.Equals(id)).SingleOrDefault();
             }
             catch (Exception ex)
             {
@@ -100,7 +103,19 @@ namespace CapaDatos
         {
             try
             {
-                throw new NotImplementedException();
+                // put, patch
+                var cli = getById(cliente.id);
+                //lista.Remove(cli);
+                //lista.Add(cliente);
+
+                cli.nombre = cliente.nombre;
+                cli.apellido1 = cliente.apellido1;
+                cli.apellido2 = cliente.apellido2;
+                cli.fecha_socio = cliente.fecha_socio;
+                cli.tipoCliente = cliente.tipoCliente;
+
+
+                return cliente;
             }
             catch (Exception ex)
             {

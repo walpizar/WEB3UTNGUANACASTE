@@ -36,7 +36,7 @@ namespace CapaPresentacion
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.brnGuardar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.gbxCliente = new System.Windows.Forms.GroupBox();
             this.dtpFechaSocio = new System.Windows.Forms.DateTimePicker();
             this.cboTipoCliente = new System.Windows.Forms.ComboBox();
@@ -126,18 +126,18 @@ namespace CapaPresentacion
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // brnGuardar
+            // btnGuardar
             // 
-            this.brnGuardar.BackColor = System.Drawing.Color.Green;
-            this.brnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brnGuardar.ForeColor = System.Drawing.Color.White;
-            this.brnGuardar.Location = new System.Drawing.Point(341, 318);
-            this.brnGuardar.Name = "brnGuardar";
-            this.brnGuardar.Size = new System.Drawing.Size(102, 50);
-            this.brnGuardar.TabIndex = 7;
-            this.brnGuardar.Text = "Guardar";
-            this.brnGuardar.UseVisualStyleBackColor = false;
-            this.brnGuardar.Click += new System.EventHandler(this.brnGuardar_Click);
+            this.btnGuardar.BackColor = System.Drawing.Color.Green;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(341, 318);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(102, 50);
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.brnGuardar_Click);
             // 
             // gbxCliente
             // 
@@ -289,7 +289,7 @@ namespace CapaPresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 380);
             this.Controls.Add(this.gbxCliente);
-            this.Controls.Add(this.brnGuardar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.pnlTitulo);
@@ -317,7 +317,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button brnGuardar;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.GroupBox gbxCliente;
         private System.Windows.Forms.TextBox txtIdentificacion;
         private System.Windows.Forms.Label label1;

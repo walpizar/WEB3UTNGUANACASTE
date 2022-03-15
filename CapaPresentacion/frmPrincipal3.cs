@@ -86,5 +86,11 @@ namespace CapaPresentacion
             var form = ServiceProvider.GetRequiredService<frmListaClientes>();         
             form.ShowDialog();
         }
+
+        private void btnProducto_Click(object sender, EventArgs e)
+        {
+            var form = ServiceProvider.GetRequiredService<frmProducto>();
+            form.ShowDialog();
+        }
     }
 }

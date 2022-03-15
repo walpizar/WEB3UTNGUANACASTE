@@ -31,3 +31,5 @@ C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\Microsoft.Exte
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.frmBusquedaProducto.resources
+C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.frmProducto.resources

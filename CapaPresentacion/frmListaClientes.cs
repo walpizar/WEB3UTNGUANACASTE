@@ -106,14 +106,36 @@ namespace CapaPresentacion
                 var cliente = lista.Where(x => x.identificacion.Trim().Equals(ident.Trim())).SingleOrDefault();
 
                 var form = ServiceProvider.GetRequiredService<frmClientes>();
-                form.cliente = cliente;
+                form.clienteGlobal = cliente;
                 form.ShowDialog();
+
+
+                obtenerDatos();
             }
             catch (Exception)
             {
 
                 MessageBox.Show("No se pudo cargar el cliente", "Cargar clientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }       
+
+        }
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBusqueda.Text == string.Empty)
+            {
+                cargarListView(lista);
+
+            }
+            else
+            {
+                var listaFiltrada = lista.Where(x => x.identificacion.Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper()) 
+                || x.nombre.Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper())
+                || x.apellido1.Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper())
+                || x.apellido2.Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper())).ToList();
+
+                cargarListView(listaFiltrada);
+            }
 
         }
     }
