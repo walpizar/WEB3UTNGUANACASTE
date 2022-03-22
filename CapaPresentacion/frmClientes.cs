@@ -21,14 +21,14 @@ namespace CapaPresentacion
 
 
         bool isNew = true;
-        public clsCliente clienteGlobal { get; set; }
-        public INegocio<clsCliente> ClienteNegocio { get; }
+        public tbCliente clienteGlobal { get; set; }
+        public INegocio<tbCliente> ClienteNegocio { get; }
 
         //
         //mandar a llamar a capa de negocio de cliente- guardar
         //ClientesNegocio clienteN = new ClientesNegocio();
 
-        public frmClientes(INegocio<clsCliente> _clienteNegocio)
+        public frmClientes(INegocio<tbCliente> _clienteNegocio)
         {
             InitializeComponent();
             ClienteNegocio = _clienteNegocio;
@@ -85,11 +85,11 @@ namespace CapaPresentacion
 
         private void cargarForm()
         {
-            txtIdentificacion.Text = clienteGlobal.identificacion;
-            cboTipoId.Text = Enum.GetName(typeof(Enumeradores.tipoId), clienteGlobal.tipoId);
-            txtNombre.Text = clienteGlobal.nombre;
-            txtApellido1.Text = clienteGlobal.apellido1;
-            txtApellido2.Text = clienteGlobal.apellido2;
+            txtIdentificacion.Text = clienteGlobal.id;
+            cboTipoId.Text = Enum.GetName(typeof(Enumeradores.tipoId), clienteGlobal.tbPersona.tipoId);
+            txtNombre.Text = clienteGlobal.tbPersona.nombre;
+            txtApellido1.Text = clienteGlobal.tbPersona.apellido1;
+            txtApellido2.Text = clienteGlobal.tbPersona.apellido2 ;
             cboTipoCliente.Text = Enum.GetName(typeof(Enumeradores.tipoCliente), clienteGlobal.tipoCliente);
             dtpFechaSocio.Value = clienteGlobal.fecha_socio;
 
@@ -110,7 +110,8 @@ namespace CapaPresentacion
         private void brnGuardar_Click(object sender, EventArgs e)
         {
             try
-            {   clsCliente cliente;
+            {   tbCliente cliente;
+                tbPersona persona;
                 //validar si es modiicar o crear;              
                 //permite validar el formulario y da paso a guardar
                 if (validarDatos())
@@ -127,20 +128,32 @@ namespace CapaPresentacion
                     //    cliente = clienteGlobal;
 
                     //}
-                    cliente = isNew ? new clsCliente() : clienteGlobal;
+                    cliente = isNew ? new tbCliente() : clienteGlobal;
+                    persona = isNew ? new tbPersona() : clienteGlobal.tbPersona;
 
-                    cliente.identificacion = txtIdentificacion.Text.Trim().ToUpper();
-                    //int.parse(string) utilizo cuando el valor que quiero convertir es string
-                    //(int)
-                    cliente.tipoId = (int)cboTipoId.SelectedValue;
-                    cliente.nombre= txtNombre.Text.Trim().ToUpper();
-                    cliente.apellido1 = txtApellido1.Text.Trim().ToUpper();
-                    cliente.apellido2 = txtApellido2.Text.Trim().ToUpper();
+                    if (isNew) {
+                        persona.id = txtIdentificacion.Text.Trim().ToUpper();
+                        cliente.id = txtIdentificacion.Text.Trim().ToUpper();
+                    }
+
+
+                    //persona
+               
+                    persona.tipoId= (int)cboTipoId.SelectedValue;
+                    persona.nombre= txtNombre.Text.Trim().ToUpper();
+                    persona.apellido1= txtApellido1.Text.Trim().ToUpper();
+                    persona.apellido2= txtApellido2.Text.Trim().ToUpper();
+
+
+                    //cliente
+                   
                     cliente.tipoCliente = (int)cboTipoCliente.SelectedValue;
                     cliente.fecha_socio = dtpFechaSocio.Value;
                     cliente.estado = true;
 
 
+                    //asigno persona al cliente
+                    cliente.tbPersona = persona;
 
 
                     //valido para ver si tengo que guardar nuevo o actualizar

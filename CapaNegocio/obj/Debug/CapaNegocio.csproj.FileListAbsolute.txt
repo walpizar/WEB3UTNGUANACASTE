@@ -11,3 +11,7 @@ C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\bin\Debug\Entidades.pdb
 C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
 C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\bin\Debug\Utilidades.dll
 C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\bin\Debug\Utilidades.pdb
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\bin\Debug\Entidades.dll.config
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\bin\Debug\EntityFramework.dll
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\bin\Debug\CapaDatos.dll.config
+C:\Users\walpi\source\repos\web3UTNApp\CapaNegocio\bin\Debug\EntityFramework.xml

@@ -12,8 +12,8 @@ namespace Utilidades.Interfaces
         entity update(entity cliente);
         bool delete(entity cliente);
         List<entity> getAll();
-        entity getById(int id);
-        entity getByIdent(string id);
+        entity getById(string id);
+        //entity getByIdent(string id);
 
     }
 }

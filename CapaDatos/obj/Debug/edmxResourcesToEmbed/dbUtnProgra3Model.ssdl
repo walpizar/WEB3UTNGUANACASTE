@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbUtnProgra3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbCliente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nchar" MaxLength="12" Nullable="false" />
+    <Property Name="tipoCliente" Type="int" Nullable="false" />
+    <Property Name="fecha_socio" Type="datetime" Nullable="false" />
+    <Property Name="estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbPersona">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nchar" MaxLength="12" Nullable="false" />
+    <Property Name="tipoId" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="apellido1" Type="nchar" MaxLength="30" />
+    <Property Name="apellido2" Type="nchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="tbTipoCliente">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbTipoId">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbCliente_tbTipoCliente">
+    <End Role="tbTipoCliente" Type="Self.tbTipoCliente" Multiplicity="1" />
+    <End Role="tbCliente" Type="Self.tbCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoCliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbCliente">
+        <PropertyRef Name="tipoCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbPersona_tbCliente">
+    <End Role="tbCliente" Type="Self.tbCliente" Multiplicity="1" />
+    <End Role="tbPersona" Type="Self.tbPersona" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbCliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbPersona">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbPersona_tbTipoId">
+    <End Role="tbTipoId" Type="Self.tbTipoId" Multiplicity="1" />
+    <End Role="tbPersona" Type="Self.tbPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoId">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbPersona">
+        <PropertyRef Name="tipoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbUtnProgra3ModelStoreContainer">
+    <EntitySet Name="tbCliente" EntityType="Self.tbCliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbPersona" EntityType="Self.tbPersona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipoCliente" EntityType="Self.tbTipoCliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipoId" EntityType="Self.tbTipoId" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbCliente_tbTipoCliente" Association="Self.FK_tbCliente_tbTipoCliente">
+      <End Role="tbTipoCliente" EntitySet="tbTipoCliente" />
+      <End Role="tbCliente" EntitySet="tbCliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbPersona_tbCliente" Association="Self.FK_tbPersona_tbCliente">
+      <End Role="tbCliente" EntitySet="tbCliente" />
+      <End Role="tbPersona" EntitySet="tbPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbPersona_tbTipoId" Association="Self.FK_tbPersona_tbTipoId">
+      <End Role="tbTipoId" EntitySet="tbTipoId" />
+      <End Role="tbPersona" EntitySet="tbPersona" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

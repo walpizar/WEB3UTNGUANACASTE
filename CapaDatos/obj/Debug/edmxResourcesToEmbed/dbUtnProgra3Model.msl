@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbUtnProgra3ModelStoreContainer" CdmEntityContainer="dbUtnProgra3Entities">
+    <EntitySetMapping Name="tbCliente">
+      <EntityTypeMapping TypeName="dbUtnProgra3Model.tbCliente">
+        <MappingFragment StoreEntitySet="tbCliente">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fecha_socio" ColumnName="fecha_socio" />
+          <ScalarProperty Name="tipoCliente" ColumnName="tipoCliente" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPersona">
+      <EntityTypeMapping TypeName="dbUtnProgra3Model.tbPersona">
+        <MappingFragment StoreEntitySet="tbPersona">
+          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="tipoId" ColumnName="tipoId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipoCliente">
+      <EntityTypeMapping TypeName="dbUtnProgra3Model.tbTipoCliente">
+        <MappingFragment StoreEntitySet="tbTipoCliente">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipoId">
+      <EntityTypeMapping TypeName="dbUtnProgra3Model.tbTipoId">
+        <MappingFragment StoreEntitySet="tbTipoId">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

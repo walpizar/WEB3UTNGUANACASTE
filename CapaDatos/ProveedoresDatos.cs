@@ -20,7 +20,7 @@ namespace CapaDatos
             throw new NotImplementedException();
         }
 
-        public clsProveedores getById(int id)
+        public clsProveedores getById(string id)
         {
             throw new NotImplementedException();
         }

@@ -33,3 +33,9 @@ C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\System.Runtime
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.frmBusquedaProducto.resources
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.frmProducto.resources
+C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\EntityFramework.dll
+C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\CapaDatos.dll.config
+C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\Entidades.dll.config
+C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\EntityFramework.xml
+C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\EntityFramework.SqlServer.xml

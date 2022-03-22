@@ -50,10 +50,10 @@ namespace CapaPresentacion
 
 
             //inyecciones para negocio
-            services.AddSingleton<INegocio<clsCliente>, ClientesNegocio>();
+            services.AddSingleton<INegocio<tbCliente>, ClientesNegocio>();
 
             //inyecciones para datos
-            services.AddSingleton<IDatos<clsCliente>, ClientesDatos>();
+            services.AddSingleton<IDatos<tbCliente>, ClientesDatos>();
 
         }
     }

@@ -8,23 +8,23 @@ using Utilidades.Interfaces;
 
 namespace CapaDatos
 {
-    public class ClientesDatos : IDatos<clsCliente>
+    public class ClientesDatos : IDatos<tbCliente>
     {
 
         //declaracion
-        List<clsCliente> lista;
+        List<tbCliente> lista;
 
         public ClientesDatos()
         {
             //instanciacion de lista
-            this.lista = new List<clsCliente>();
+            this.lista = new List<tbCliente>();
         }
 
-        public bool delete(clsCliente cliente)
+        public bool delete(tbCliente cliente)
         {
             try
             {
-                var cli = getById(cliente.id);
+               // var cli = getById(cliente.id);
                 cliente.estado = false;
                 //lista.Remove(cliente);
                 return true;
@@ -37,13 +37,21 @@ namespace CapaDatos
         
         }
 
-        public List<clsCliente> getAll()
+        public List<tbCliente> getAll()
         {
             try
             {
+                using (var context = new dbUtnProgra3Entities())
+                {
+
+                   return context.tbCliente.Include("tbPersona").Where(x=>x.estado==true).ToList();
+
+                }
+
+
                 //LINQ
                 //empresion LAMBDA
-                return this.lista.Where(x => x.estado == true).ToList();
+                //return this.lista.Where(x => x.estado == true).ToList();
             }
             catch (Exception ex)
             {
@@ -53,11 +61,16 @@ namespace CapaDatos
     
         }
 
-        public clsCliente getById(int id)
+        public tbCliente getById(string id)
         {
             try
             {
-                return lista.Where(x => x.id.Equals(id)).SingleOrDefault();
+                using (var context = new dbUtnProgra3Entities())
+                {
+
+                    return context.tbCliente.Where(x => x.id == id).FirstOrDefault();
+
+                }
             }
             catch (Exception ex)
             {
@@ -81,15 +94,23 @@ namespace CapaDatos
            
         }
 
-        public clsCliente save(clsCliente cliente)
+        public tbCliente save(tbCliente cliente)
         {
             try
             {
                 //lista
                 //manejo excpciones
-                           
-                cliente.id = getNextId();
-                this.lista.Add(cliente);
+
+                //  cliente.id = getNextId();
+                //this.lista.Add(cliente);
+
+                using (var context= new dbUtnProgra3Entities())
+                {
+                    context.tbCliente.Add(cliente);
+                    context.SaveChanges();
+
+                }
+                 
                 return cliente;
             }
             catch (Exception ex)
@@ -99,20 +120,17 @@ namespace CapaDatos
             }
         
         }
-        public clsCliente update(clsCliente cliente)
+        public tbCliente update(tbCliente cliente)
         {
             try
             {
-                // put, patch
-                var cli = getById(cliente.id);
-                //lista.Remove(cli);
-                //lista.Add(cliente);
+                using (var context = new dbUtnProgra3Entities())
+                {
+                    context.Entry<tbPersona>(cliente.tbPersona).State = System.Data.Entity.EntityState.Modified;
+                    context.Entry<tbCliente>(cliente).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
 
-                cli.nombre = cliente.nombre;
-                cli.apellido1 = cliente.apellido1;
-                cli.apellido2 = cliente.apellido2;
-                cli.fecha_socio = cliente.fecha_socio;
-                cli.tipoCliente = cliente.tipoCliente;
+                }
 
 
                 return cliente;
@@ -125,15 +143,15 @@ namespace CapaDatos
          
         }
 
-        public clsCliente getByIdent(string id)
+        public tbCliente getByIdent(string id)
         {
             try
             {
                 //trabajo clase devuelve cliente sino devuelve null.
 
-                return lista.Where(x => x.identificacion.Trim().Equals(id.Trim())).SingleOrDefault();
+                //return lista.Where(x => x.identificacion.Trim().Equals(id.Trim())).SingleOrDefault();
 
-
+                return null;
 
                 //foreach (var cliente in lista)
                 //{

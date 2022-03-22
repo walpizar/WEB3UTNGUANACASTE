@@ -10,10 +10,13 @@ using Utilidades.Interfaces;
 
 namespace CapaNegocio
 {
-    public class ClientesNegocio : INegocio<clsCliente>
+    public class ClientesNegocio : INegocio<tbCliente>
     {
-        public IDatos<clsCliente> ClienteDatos { get; }
-        public ClientesNegocio(IDatos<clsCliente> _clienteDatos)
+        public IDatos<tbCliente> ClienteDatos { get; }
+
+
+
+        public ClientesNegocio(IDatos<tbCliente> _clienteDatos)
         {
             ClienteDatos = _clienteDatos;
         }
@@ -22,7 +25,7 @@ namespace CapaNegocio
 
         //ClientesDatos clienteDato = new ClientesDatos();
 
-        public bool delete(clsCliente cliente)
+        public bool delete(tbCliente cliente)
         {
             try
             {
@@ -36,7 +39,7 @@ namespace CapaNegocio
         
         }
 
-        public List<clsCliente> getAll()
+        public List<tbCliente> getAll()
         {
             try
             {
@@ -50,7 +53,7 @@ namespace CapaNegocio
    
         }
 
-        public clsCliente getById(int id)
+        public tbCliente getById(string id)
         {
             try
             {
@@ -64,14 +67,14 @@ namespace CapaNegocio
            
         }
 
-        public clsCliente save(clsCliente cliente)
+        public tbCliente save(tbCliente cliente)
         {
             
             try
             {
                 //reglas de negocio
                 //el cliente no exista mediante su identificacion
-                var cli = ClienteDatos.getByIdent(cliente.identificacion);
+                var cli = ClienteDatos.getById(cliente.id);
                 if(cli != null)
                 {
                     throw new EntityExistException("Cliente");
@@ -88,7 +91,7 @@ namespace CapaNegocio
 
         }
 
-        public clsCliente update(clsCliente cliente)
+        public tbCliente update(tbCliente cliente)
         {
             try
             {
@@ -104,6 +107,5 @@ namespace CapaNegocio
   
         }
 
-               
     }
 }

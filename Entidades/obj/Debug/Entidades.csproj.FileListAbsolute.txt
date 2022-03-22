@@ -4,3 +4,9 @@ C:\Users\walpi\source\repos\web3UTNApp\Entidades\bin\Debug\Entidades.pdb
 C:\Users\walpi\source\repos\web3UTNApp\Entidades\obj\Debug\Entidades.dll
 C:\Users\walpi\source\repos\web3UTNApp\Entidades\obj\Debug\Entidades.pdb
 C:\Users\walpi\source\repos\web3UTNApp\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\walpi\source\repos\web3UTNApp\Entidades\bin\Debug\Entidades.dll.config
+C:\Users\walpi\source\repos\web3UTNApp\Entidades\bin\Debug\EntityFramework.dll
+C:\Users\walpi\source\repos\web3UTNApp\Entidades\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\walpi\source\repos\web3UTNApp\Entidades\bin\Debug\EntityFramework.xml
+C:\Users\walpi\source\repos\web3UTNApp\Entidades\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\walpi\source\repos\web3UTNApp\Entidades\obj\Debug\Entidades.csproj.CopyComplete

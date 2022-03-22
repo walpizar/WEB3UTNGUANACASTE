@@ -7,3 +7,4 @@ C:\Users\walpi\source\repos\web3UTNApp\Utilidades\obj\Debug\Utilidades.pdb
 C:\Users\walpi\source\repos\web3UTNApp\Utilidades\bin\Debug\Entidades.dll
 C:\Users\walpi\source\repos\web3UTNApp\Utilidades\bin\Debug\Entidades.pdb
 C:\Users\walpi\source\repos\web3UTNApp\Utilidades\obj\Debug\Utilidades.csproj.CopyComplete
+C:\Users\walpi\source\repos\web3UTNApp\Utilidades\bin\Debug\Entidades.dll.config

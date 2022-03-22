@@ -18,6 +18,7 @@ namespace Entidades
 
         public bool estado { get; set; }
 
+
         public clsCliente()
         {
 

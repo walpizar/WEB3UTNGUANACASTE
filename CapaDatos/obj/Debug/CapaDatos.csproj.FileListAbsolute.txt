@@ -9,3 +9,9 @@ C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\obj\Debug\CapaDatos.csproj.Copy
 C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
 C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\bin\Debug\Utilidades.dll
 C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\bin\Debug\Utilidades.pdb
+C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\bin\Debug\EntityFramework.dll
+C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\bin\Debug\Entidades.dll.config
+C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\bin\Debug\EntityFramework.xml
+C:\Users\walpi\source\repos\web3UTNApp\CapaDatos\bin\Debug\EntityFramework.SqlServer.xml

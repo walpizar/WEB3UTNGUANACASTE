@@ -16,14 +16,14 @@ namespace CapaPresentacion
 {
     public partial class frmListaClientes : Form
     {
-        List<clsCliente> lista;
-        public INegocio<clsCliente> ClienteNegocio { get; }
+        List<tbCliente> lista;
+        public INegocio<tbCliente> ClienteNegocio { get; }
         public IServiceProvider ServiceProvider { get; }
 
         //ClientesNegocio clienteNegocio = new ClientesNegocio();
 
         //inyeccion
-        public frmListaClientes(INegocio<clsCliente> _clienteNegocio, IServiceProvider _serviceProvider )
+        public frmListaClientes(INegocio<tbCliente> _clienteNegocio, IServiceProvider _serviceProvider )
         {
             InitializeComponent();
             ClienteNegocio = _clienteNegocio;
@@ -52,7 +52,7 @@ namespace CapaPresentacion
                 MessageBox.Show("No se pudo cargar la lista", "Cargar lista clientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void cargarListView(List<clsCliente> lista)
+        private void cargarListView(List<tbCliente> lista)
         {
             lstvLista.Items.Clear();
 
@@ -60,10 +60,10 @@ namespace CapaPresentacion
             foreach (var cliente in lista)
             {
                 ListViewItem item = new ListViewItem();
-                item.Text = cliente.identificacion;
-                item.SubItems.Add( cliente.nombre.Trim().ToUpper());
-                item.SubItems.Add( cliente.apellido1.Trim().ToUpper());
-                item.SubItems.Add( cliente.apellido2.Trim().ToUpper());
+                item.Text = cliente.id;
+                item.SubItems.Add( cliente.tbPersona.nombre.Trim().ToUpper());
+                item.SubItems.Add( cliente.tbPersona.apellido1.Trim().ToUpper());
+                item.SubItems.Add( cliente.tbPersona.apellido2.Trim().ToUpper());
                 lstvLista.Items.Add(item);
             }
         }
@@ -103,7 +103,7 @@ namespace CapaPresentacion
             try
             {
                 var ident = lstvLista.SelectedItems[0].Text;
-                var cliente = lista.Where(x => x.identificacion.Trim().Equals(ident.Trim())).SingleOrDefault();
+                var cliente = lista.Where(x => x.id.Trim().Equals(ident.Trim())).SingleOrDefault();
 
                 var form = ServiceProvider.GetRequiredService<frmClientes>();
                 form.clienteGlobal = cliente;
@@ -129,10 +129,10 @@ namespace CapaPresentacion
             }
             else
             {
-                var listaFiltrada = lista.Where(x => x.identificacion.Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper()) 
-                || x.nombre.Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper())
-                || x.apellido1.Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper())
-                || x.apellido2.Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper())).ToList();
+                var listaFiltrada = lista.Where(x => x.id.Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper()) 
+                || x.tbPersona.nombre.Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper())
+                || x.tbPersona.apellido1.Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper())
+                || x.tbPersona.apellido2.Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper())).ToList();
 
                 cargarListView(listaFiltrada);
             }

@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbUtnProgra3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbCliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nchar" MaxLength="12" Nullable="false" />
+          <Property Name="tipoCliente" Type="int" Nullable="false" />
+          <Property Name="fecha_socio" Type="datetime" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbPersona">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nchar" MaxLength="12" Nullable="false" />
+          <Property Name="tipoId" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="apellido1" Type="nchar" MaxLength="30" />
+          <Property Name="apellido2" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tbTipoCliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbTipoId">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tbCliente_tbTipoCliente">
+          <End Role="tbTipoCliente" Type="Self.tbTipoCliente" Multiplicity="1" />
+          <End Role="tbCliente" Type="Self.tbCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbTipoCliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbCliente">
+              <PropertyRef Name="tipoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPersona_tbCliente">
+          <End Role="tbCliente" Type="Self.tbCliente" Multiplicity="1" />
+          <End Role="tbPersona" Type="Self.tbPersona" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbCliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbPersona">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPersona_tbTipoId">
+          <End Role="tbTipoId" Type="Self.tbTipoId" Multiplicity="1" />
+          <End Role="tbPersona" Type="Self.tbPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbTipoId">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbPersona">
+              <PropertyRef Name="tipoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbUtnProgra3ModelStoreContainer">
+          <EntitySet Name="tbCliente" EntityType="Self.tbCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbPersona" EntityType="Self.tbPersona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbTipoCliente" EntityType="Self.tbTipoCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbTipoId" EntityType="Self.tbTipoId" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbCliente_tbTipoCliente" Association="Self.FK_tbCliente_tbTipoCliente">
+            <End Role="tbTipoCliente" EntitySet="tbTipoCliente" />
+            <End Role="tbCliente" EntitySet="tbCliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPersona_tbCliente" Association="Self.FK_tbPersona_tbCliente">
+            <End Role="tbCliente" EntitySet="tbCliente" />
+            <End Role="tbPersona" EntitySet="tbPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPersona_tbTipoId" Association="Self.FK_tbPersona_tbTipoId">
+            <End Role="tbTipoId" EntitySet="tbTipoId" />
+            <End Role="tbPersona" EntitySet="tbPersona" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbUtnProgra3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbUtnProgra3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbCliente" EntityType="dbUtnProgra3Model.tbCliente" />
+          <EntitySet Name="tbPersona" EntityType="dbUtnProgra3Model.tbPersona" />
+          <EntitySet Name="tbTipoCliente" EntityType="dbUtnProgra3Model.tbTipoCliente" />
+          <EntitySet Name="tbTipoId" EntityType="dbUtnProgra3Model.tbTipoId" />
+          <AssociationSet Name="FK_tbCliente_tbTipoCliente" Association="dbUtnProgra3Model.FK_tbCliente_tbTipoCliente">
+            <End Role="tbTipoCliente" EntitySet="tbTipoCliente" />
+            <End Role="tbCliente" EntitySet="tbCliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPersona_tbCliente" Association="dbUtnProgra3Model.FK_tbPersona_tbCliente">
+            <End Role="tbCliente" EntitySet="tbCliente" />
+            <End Role="tbPersona" EntitySet="tbPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPersona_tbTipoId" Association="dbUtnProgra3Model.FK_tbPersona_tbTipoId">
+            <End Role="tbTipoId" EntitySet="tbTipoId" />
+            <End Role="tbPersona" EntitySet="tbPersona" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbCliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="tipoCliente" Type="Int32" Nullable="false" />
+          <Property Name="fecha_socio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tbTipoCliente" Relationship="dbUtnProgra3Model.FK_tbCliente_tbTipoCliente" FromRole="tbCliente" ToRole="tbTipoCliente" />
+          <NavigationProperty Name="tbPersona" Relationship="dbUtnProgra3Model.FK_tbPersona_tbCliente" FromRole="tbCliente" ToRole="tbPersona" />
+        </EntityType>
+        <EntityType Name="tbPersona">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="tipoId" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="apellido1" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="apellido2" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="tbCliente" Relationship="dbUtnProgra3Model.FK_tbPersona_tbCliente" FromRole="tbPersona" ToRole="tbCliente" />
+          <NavigationProperty Name="tbTipoId" Relationship="dbUtnProgra3Model.FK_tbPersona_tbTipoId" FromRole="tbPersona" ToRole="tbTipoId" />
+        </EntityType>
+        <EntityType Name="tbTipoCliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="tbCliente" Relationship="dbUtnProgra3Model.FK_tbCliente_tbTipoCliente" FromRole="tbTipoCliente" ToRole="tbCliente" />
+        </EntityType>
+        <EntityType Name="tbTipoId">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="tbPersona" Relationship="dbUtnProgra3Model.FK_tbPersona_tbTipoId" FromRole="tbTipoId" ToRole="tbPersona" />
+        </EntityType>
+        <Association Name="FK_tbCliente_tbTipoCliente">
+          <End Type="dbUtnProgra3Model.tbTipoCliente" Role="tbTipoCliente" Multiplicity="1" />
+          <End Type="dbUtnProgra3Model.tbCliente" Role="tbCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbTipoCliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbCliente">
+              <PropertyRef Name="tipoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPersona_tbCliente">
+          <End Type="dbUtnProgra3Model.tbCliente" Role="tbCliente" Multiplicity="1" />
+          <End Type="dbUtnProgra3Model.tbPersona" Role="tbPersona" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbCliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbPersona">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPersona_tbTipoId">
+          <End Type="dbUtnProgra3Model.tbTipoId" Role="tbTipoId" Multiplicity="1" />
+          <End Type="dbUtnProgra3Model.tbPersona" Role="tbPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbTipoId">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbPersona">
+              <PropertyRef Name="tipoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbUtnProgra3ModelStoreContainer" CdmEntityContainer="dbUtnProgra3Entities">
+          <EntitySetMapping Name="tbCliente">
+            <EntityTypeMapping TypeName="dbUtnProgra3Model.tbCliente">
+              <MappingFragment StoreEntitySet="tbCliente">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fecha_socio" ColumnName="fecha_socio" />
+                <ScalarProperty Name="tipoCliente" ColumnName="tipoCliente" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPersona">
+            <EntityTypeMapping TypeName="dbUtnProgra3Model.tbPersona">
+              <MappingFragment StoreEntitySet="tbPersona">
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="tipoId" ColumnName="tipoId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbTipoCliente">
+            <EntityTypeMapping TypeName="dbUtnProgra3Model.tbTipoCliente">
+              <MappingFragment StoreEntitySet="tbTipoCliente">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbTipoId">
+            <EntityTypeMapping TypeName="dbUtnProgra3Model.tbTipoId">
+              <MappingFragment StoreEntitySet="tbTipoId">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
