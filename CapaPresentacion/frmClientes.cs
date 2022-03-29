@@ -23,15 +23,21 @@ namespace CapaPresentacion
         bool isNew = true;
         public tbCliente clienteGlobal { get; set; }
         public INegocio<tbCliente> ClienteNegocio { get; }
+        public INegocio<tbTipoId> TipoIdNegocio { get; }
+        public INegocio<tbTipoCliente> TipoClienteNegocio { get; }
 
         //
         //mandar a llamar a capa de negocio de cliente- guardar
         //ClientesNegocio clienteN = new ClientesNegocio();
 
-        public frmClientes(INegocio<tbCliente> _clienteNegocio)
+        public frmClientes(INegocio<tbCliente> _clienteNegocio, 
+            INegocio<tbTipoId> _tipoIdNegocio, 
+            INegocio<tbTipoCliente> _tipoClienteNegocio)
         {
             InitializeComponent();
             ClienteNegocio = _clienteNegocio;
+            TipoIdNegocio = _tipoIdNegocio;
+            TipoClienteNegocio = _tipoClienteNegocio;
         }
 
         private void pbCerrar_Click(object sender, EventArgs e)
@@ -86,19 +92,37 @@ namespace CapaPresentacion
         private void cargarForm()
         {
             txtIdentificacion.Text = clienteGlobal.id;
-            cboTipoId.Text = Enum.GetName(typeof(Enumeradores.tipoId), clienteGlobal.tbPersona.tipoId);
+            cboTipoId.SelectedValue =  clienteGlobal.tbPersona.tipoId;
             txtNombre.Text = clienteGlobal.tbPersona.nombre;
             txtApellido1.Text = clienteGlobal.tbPersona.apellido1;
             txtApellido2.Text = clienteGlobal.tbPersona.apellido2 ;
-            cboTipoCliente.Text = Enum.GetName(typeof(Enumeradores.tipoCliente), clienteGlobal.tipoCliente);
+            //cargo con enumerador
+            //cboTipoCliente.Text = Enum.GetName(typeof(Enumeradores.tipoCliente), clienteGlobal.tipoCliente);
+
+            //cargo con base datos.
+            cboTipoCliente.SelectedValue = clienteGlobal.tipoCliente;
             dtpFechaSocio.Value = clienteGlobal.fecha_socio;
 
         }
 
         private void cargarCombos()
         {
-            cboTipoId.DataSource = Enum.GetValues(typeof(Enumeradores.tipoId));
-            cboTipoCliente.DataSource = Enum.GetValues(typeof(Enumeradores.tipoCliente));
+            //cboTipoId.DataSource = Enum.GetValues(typeof(Enumeradores.tipoId));
+            //cboTipoCliente.DataSource = Enum.GetValues(typeof(Enumeradores.tipoCliente));
+
+            //cargo el combo dinamico de la base datos tabla tipoID
+            cboTipoId.DataSource = TipoIdNegocio.getAll();
+            cboTipoId.DisplayMember = "nombre";
+            cboTipoId.ValueMember = "id";
+
+            //cargo el combo dinamico de la base datos tabla tipoCLiente
+            cboTipoCliente.DataSource = TipoClienteNegocio.getAll();
+            cboTipoCliente.DisplayMember = "nombre";
+            cboTipoCliente.ValueMember = "id";
+
+
+
+
         }
 
 
@@ -247,6 +271,11 @@ namespace CapaPresentacion
 
                 MessageBox.Show("Error al eliminar el cliente", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

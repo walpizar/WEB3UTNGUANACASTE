@@ -12,21 +12,27 @@ namespace CapaDatos
     {
 
         //declaracion
-        List<tbCliente> lista;
+       // List<tbCliente> lista;
 
         public ClientesDatos()
         {
             //instanciacion de lista
-            this.lista = new List<tbCliente>();
+           // this.lista = new List<tbCliente>();
         }
 
         public bool delete(tbCliente cliente)
         {
             try
             {
-               // var cli = getById(cliente.id);
+
                 cliente.estado = false;
-                //lista.Remove(cliente);
+                using (var context = new dbUtnProgra3Entities())
+                {                 
+                    context.Entry<tbCliente>(cliente).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+
+                }
+
                 return true;
             }
             catch (Exception ex)
@@ -68,7 +74,7 @@ namespace CapaDatos
                 using (var context = new dbUtnProgra3Entities())
                 {
 
-                    return context.tbCliente.Where(x => x.id == id).FirstOrDefault();
+                    return context.tbCliente.Where(x => x.id == id).SingleOrDefault();
 
                 }
             }
@@ -80,19 +86,19 @@ namespace CapaDatos
            
         }
 
-        private int getNextId()
-        {
-            try
-            {
-                return lista.Count() + 1;
-            }
-            catch (Exception ex)
-            {
+        //private int getNextId()
+        //{
+        //    try
+        //    {
+        //        return lista.Count() + 1;
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw;
-            }
+        //        throw;
+        //    }
            
-        }
+        //}
 
         public tbCliente save(tbCliente cliente)
         {
@@ -107,7 +113,7 @@ namespace CapaDatos
                 using (var context= new dbUtnProgra3Entities())
                 {
                     context.tbCliente.Add(cliente);
-                    context.SaveChanges();
+                    context.SaveChanges();//commit
 
                 }
                  
@@ -143,34 +149,34 @@ namespace CapaDatos
          
         }
 
-        public tbCliente getByIdent(string id)
-        {
-            try
-            {
-                //trabajo clase devuelve cliente sino devuelve null.
+        //public tbCliente getByIdent(string id)
+        //{
+        //    try
+        //    {
+        //        //trabajo clase devuelve cliente sino devuelve null.
 
-                //return lista.Where(x => x.identificacion.Trim().Equals(id.Trim())).SingleOrDefault();
+        //        //return lista.Where(x => x.identificacion.Trim().Equals(id.Trim())).SingleOrDefault();
 
-                return null;
+        //        return null;
 
-                //foreach (var cliente in lista)
-                //{
-                //    if (cliente.identificacion==id) {
+        //        //foreach (var cliente in lista)
+        //        //{
+        //        //    if (cliente.identificacion==id) {
 
-                //        return cliente;
-                //    }
+        //        //        return cliente;
+        //        //    }
 
-                //}
-                //return null;
+        //        //}
+        //        //return null;
 
                
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw;
-            }
+        //        throw;
+        //    }
            
-        }
+        //}
     }
 }

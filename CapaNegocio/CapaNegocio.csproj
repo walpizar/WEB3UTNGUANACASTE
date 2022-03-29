@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="ClientesNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoClienteNegocio.cs" />
+    <Compile Include="TipoIdNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">

@@ -66,6 +66,8 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedoresDatos.cs" />
+    <Compile Include="TipoClienteDatos.cs" />
+    <Compile Include="TipoIdDatos.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj">

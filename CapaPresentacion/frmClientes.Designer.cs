@@ -29,6 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClientes));
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.pnlDerecha = new System.Windows.Forms.Panel();
@@ -52,6 +53,8 @@ namespace CapaPresentacion
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdentificacion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlTitulo.SuspendLayout();
             this.pnlDerecha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).BeginInit();
@@ -141,6 +144,7 @@ namespace CapaPresentacion
             // 
             // gbxCliente
             // 
+            this.gbxCliente.Controls.Add(this.linkLabel1);
             this.gbxCliente.Controls.Add(this.dtpFechaSocio);
             this.gbxCliente.Controls.Add(this.cboTipoCliente);
             this.gbxCliente.Controls.Add(this.label7);
@@ -283,6 +287,17 @@ namespace CapaPresentacion
             this.label1.TabIndex = 0;
             this.label1.Text = "Identificación:";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(184, 228);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(55, 13);
+            this.linkLabel1.TabIndex = 14;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "linkLabel1";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,5 +348,7 @@ namespace CapaPresentacion
         private System.Windows.Forms.ComboBox cboTipoCliente;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
