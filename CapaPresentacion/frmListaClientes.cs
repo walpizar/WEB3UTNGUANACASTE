@@ -138,5 +138,17 @@ namespace CapaPresentacion
             }
 
         }
+
+        private void btnReporteActivos_Click(object sender, EventArgs e)
+        {
+            var form = ServiceProvider.GetRequiredService<frmRptListaClienteActivo>();        
+            form.ShowDialog();
+        }
+
+        private void btnReporteXTipo_Click(object sender, EventArgs e)
+        {
+            var form = ServiceProvider.GetRequiredService<frmRptClienteXTipo>();
+            form.ShowDialog();
+        }
     }
 }

@@ -48,6 +48,9 @@ namespace CapaPresentacion
             services.AddTransient<frmProducto>();
             services.AddTransient<frmBusquedaProducto>();
 
+            //Form reportes
+            services.AddTransient<frmRptListaClienteActivo>();
+            services.AddTransient<frmRptClienteXTipo>();
 
             //inyecciones para negocio
             services.AddSingleton<INegocio<tbCliente>, ClientesNegocio>();

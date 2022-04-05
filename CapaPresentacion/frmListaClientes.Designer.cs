@@ -40,6 +40,8 @@
             this.colApellido2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnReporteActivos = new System.Windows.Forms.Button();
+            this.btnReporteXTipo = new System.Windows.Forms.Button();
             this.pnlTitulo.SuspendLayout();
             this.pnlDerecha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).BeginInit();
@@ -148,11 +150,39 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnReporteActivos
+            // 
+            this.btnReporteActivos.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnReporteActivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteActivos.ForeColor = System.Drawing.Color.White;
+            this.btnReporteActivos.Location = new System.Drawing.Point(356, 499);
+            this.btnReporteActivos.Name = "btnReporteActivos";
+            this.btnReporteActivos.Size = new System.Drawing.Size(102, 50);
+            this.btnReporteActivos.TabIndex = 5;
+            this.btnReporteActivos.Text = "Reporte Activos";
+            this.btnReporteActivos.UseVisualStyleBackColor = false;
+            this.btnReporteActivos.Click += new System.EventHandler(this.btnReporteActivos_Click);
+            // 
+            // btnReporteXTipo
+            // 
+            this.btnReporteXTipo.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnReporteXTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteXTipo.ForeColor = System.Drawing.Color.White;
+            this.btnReporteXTipo.Location = new System.Drawing.Point(485, 499);
+            this.btnReporteXTipo.Name = "btnReporteXTipo";
+            this.btnReporteXTipo.Size = new System.Drawing.Size(102, 50);
+            this.btnReporteXTipo.TabIndex = 6;
+            this.btnReporteXTipo.Text = "Reporte X Tipo";
+            this.btnReporteXTipo.UseVisualStyleBackColor = false;
+            this.btnReporteXTipo.Click += new System.EventHandler(this.btnReporteXTipo_Click);
+            // 
             // frmListaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 503);
+            this.ClientSize = new System.Drawing.Size(617, 557);
+            this.Controls.Add(this.btnReporteXTipo);
+            this.Controls.Add(this.btnReporteActivos);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.lstvLista);
@@ -185,5 +215,7 @@
         private System.Windows.Forms.ColumnHeader colApellido2;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnReporteActivos;
+        private System.Windows.Forms.Button btnReporteXTipo;
     }
 }
