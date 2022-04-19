@@ -51,6 +51,7 @@ namespace CapaPresentacion
             //Form reportes
             services.AddTransient<frmRptListaClienteActivo>();
             services.AddTransient<frmRptClienteXTipo>();
+            services.AddTransient<frmRptComprasCliente>();
 
             //inyecciones para negocio
             services.AddSingleton<INegocio<tbCliente>, ClientesNegocio>();

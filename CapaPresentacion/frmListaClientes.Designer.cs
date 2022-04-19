@@ -42,6 +42,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnReporteActivos = new System.Windows.Forms.Button();
             this.btnReporteXTipo = new System.Windows.Forms.Button();
+            this.btnComprasCliente = new System.Windows.Forms.Button();
             this.pnlTitulo.SuspendLayout();
             this.pnlDerecha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrar)).BeginInit();
@@ -176,11 +177,25 @@
             this.btnReporteXTipo.UseVisualStyleBackColor = false;
             this.btnReporteXTipo.Click += new System.EventHandler(this.btnReporteXTipo_Click);
             // 
+            // btnComprasCliente
+            // 
+            this.btnComprasCliente.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnComprasCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComprasCliente.ForeColor = System.Drawing.Color.White;
+            this.btnComprasCliente.Location = new System.Drawing.Point(178, 499);
+            this.btnComprasCliente.Name = "btnComprasCliente";
+            this.btnComprasCliente.Size = new System.Drawing.Size(143, 50);
+            this.btnComprasCliente.TabIndex = 7;
+            this.btnComprasCliente.Text = "Reporte Compras Cliente";
+            this.btnComprasCliente.UseVisualStyleBackColor = false;
+            this.btnComprasCliente.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // frmListaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 557);
+            this.Controls.Add(this.btnComprasCliente);
             this.Controls.Add(this.btnReporteXTipo);
             this.Controls.Add(this.btnReporteActivos);
             this.Controls.Add(this.btnNuevo);
@@ -217,5 +232,6 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnReporteActivos;
         private System.Windows.Forms.Button btnReporteXTipo;
+        private System.Windows.Forms.Button btnComprasCliente;
     }
 }

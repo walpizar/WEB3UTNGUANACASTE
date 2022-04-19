@@ -150,5 +150,11 @@ namespace CapaPresentacion
             var form = ServiceProvider.GetRequiredService<frmRptClienteXTipo>();
             form.ShowDialog();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var form = ServiceProvider.GetRequiredService<frmRptComprasCliente>();
+            form.ShowDialog();
+        }
     }
 }

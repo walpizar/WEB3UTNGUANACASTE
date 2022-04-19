@@ -60,3 +60,5 @@ C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\stdole.dll
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.frmRptClienteXTipo.resources
 C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.frmRptListaClienteActivo.resources
+C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.frmParametroTipoCliente.resources
+C:\Users\walpi\source\repos\web3UTNApp\CapaPresentacion\obj\Debug\CapaPresentacion.frmRptComprasCliente.resources
